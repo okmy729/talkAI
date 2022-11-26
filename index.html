@@ -24,14 +24,17 @@
     <button id="send">send</button>
     <script type="module">
         import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
+
         document.querySelector('#send').addEventListener('click', function () {
             var template = `<div class="line">
             <span class="chat-box mine">${document.querySelector('#input').value}</span>
           </div>`
             document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template);
 
+
+
             const configuration = new Configuration({
-                apiKey: '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',
+                apiKey: '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',
             });
             const openai = new OpenAIApi(configuration);
 
@@ -50,6 +53,7 @@
             </div>`
                 document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template);
             })
+
         })
     </script>
 </body>

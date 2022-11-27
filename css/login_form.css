@@ -1,0 +1,32 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    margin : 0px 30px;
+}
+.login input{
+    border: none;
+    padding : 15px 0px;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+.login input:not([type="submit"]){
+    border-bottom:1px solid rgba(0,0,0,0.3);
+    border-width: 0.03cm;
+    transition: border-color 0.3s ease-in-out;
+}
+.login input::placeholder{
+    opacity: 0.4; 
+} 
+.login input:focus{
+    border-color: var(--yellow);
+}
+.login input[type="submit"]{
+    background-color: var(--yellow);
+    cursor: pointer;
+}
+.find_link{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color : black;
+}

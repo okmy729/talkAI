@@ -1,19 +1,6 @@
-.chat-content {
-    height: 350px;
-    overflow-y: scroll
-}
-
-.line {
-    margin-top: 10px;
-    display: flex;
-}
-
-.chat-box {
-    background: #eee;
-    padding: 5px;
-    max-width: 200px;
-}
-
-.mine {
-    margin-left: auto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import "reset.css";
+@import "welcome_header.css";
+@import "login_form.css";
+@import "variables.css";
+@import "talk.css"

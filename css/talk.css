@@ -1,6 +1,12 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
 .chat-content {
     height: 350px;
-    overflow-y: scroll
+    overflow-y: scroll;
+    background: #8798ac;
 }
 
 .line {
@@ -16,4 +22,21 @@
 
 .mine {
     margin-left: auto;
+}
+
+.sending {
+    border: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sendin {
+    width: 100%;
+}
+
+#send {
+    border-width: 0.4px;
+    background-color: var(--yellow);
+    cursor: pointer;
 }

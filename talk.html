@@ -17,12 +17,17 @@
             <span class="chat-box">hello?</span>
         </div>
         <div class="line">
-            <span class="mine">hi?</span>
+            <span class="mine chat-box">hi?</span>
         </div>
     </div>
-    <input class="chat-box" id="input">
-    <button id="send">send</button>
+    <div class="sending">
+        <input class="chat-box sendin" id="input">
+        <button id="send">send</button>
+    </div>
     <script type="module">
+        var key = localStorage.getItem('api');
+        localStorage.removeItem('api');
+
         import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
 
         document.querySelector('#send').addEventListener('click', function () {
@@ -34,7 +39,7 @@
 
 
             const configuration = new Configuration({
-                apiKey: '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',
+                apiKey: key,
             });
             const openai = new OpenAIApi(configuration);
 

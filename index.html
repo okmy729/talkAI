@@ -8,6 +8,17 @@
 
     <script>
         function saveapi() {
+            var id = document.querySelector('#id').value;
+            var pw = document.querySelector('#pw').value;
+
+            if (id == "okmy729@gmail.com" && pw == "Bluesky912@") {
+                location.href = 'talk.html';
+            }
+            else {
+                alert('failed');
+            }
+
+
             var ap = document.getElementById("api").value;
             localStorage.setItem('api', ap);
         }
@@ -20,9 +31,9 @@
         <p class="welcome_header_extra">if you have a Account,</p>
         <p class="welcome_header_extra">log in with your email or phone number.</p>
     </header>
-    <form class="login" action="talk.html" onsubmit="saveapi()">
-        <input type="text" placeholder="Email or phone number" required>
-        <input type="password" placeholder="Password" required>
+    <form class="login" action="talk.html" onsubmit="saveapi(); return false;">
+        <input type="text" placeholder="Email or phone number" id="id" required>
+        <input type="password" placeholder="Password" id="pw" required>
         <input type="text" placeholder="your api key" id="api" required>
         <input type="submit" value="Log in" />
     </form>

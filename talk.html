@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="sending">
-        <input class="chat-box sendin" id="input">
+        <input class="chat-box sendin" id="input" required>
         <button id="send">send</button>
     </div>
     <script type="module">
@@ -30,36 +30,41 @@
 
         import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
 
+
         document.querySelector('#send').addEventListener('click', function () {
-            var template = `<div class="line">
+            var ck = document.getElementById('input').value;
+
+            if (ck.trim() != '') {
+                var template = `<div class="line">
             <span class="chat-box mine">${document.querySelector('#input').value}</span>
           </div>`
-            document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template);
+                document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template);
 
+                const configuration = new Configuration({
+                    apiKey: key,
+                });
+                const openai = new OpenAIApi(configuration);
 
-
-            const configuration = new Configuration({
-                apiKey: key,
-            });
-            const openai = new OpenAIApi(configuration);
-
-            openai.createCompletion({
-                model: "text-davinci-002",
-                prompt: document.querySelector('#input').value,
-                temperature: 0.7,
-                max_tokens: 256,
-                top_p: 1,
-                frequency_penalty: 0,
-                presence_penalty: 0,
-            }).then((result) => {
-                console.log(result.data.choices[0].text)
-                var template = `<div class="line">
+                openai.createCompletion({
+                    model: "text-davinci-002",
+                    prompt: document.querySelector('#input').value,
+                    temperature: 0.7,
+                    max_tokens: 256,
+                    top_p: 1,
+                    frequency_penalty: 0,
+                    presence_penalty: 0,
+                }).then((result) => {
+                    console.log(result.data.choices[0].text)
+                    var template = `<div class="line">
               <span class="chat-box">${result.data.choices[0].text}</span>
             </div>`
-                document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template);
-            })
-
+                    document.querySelector('.chat-content').insertAdjacentHTML('beforeend', template);
+                })
+            }
         })
+
+
+
     </script>
 </body>
 

@@ -10,7 +10,12 @@
         function saveapi() {
             var id = document.querySelector('#id').value;
             var pw = document.querySelector('#pw').value;
-            location.href = 'talk.html';
+            if(id=="testaccount_1"&&pw=="123456789"){
+                 location.href = 'talk.html';
+            }
+            else{
+                alert("failed log in");
+            }
 
 
             var ap = document.getElementById("api").value;
